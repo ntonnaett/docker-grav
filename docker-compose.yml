@@ -1,0 +1,14 @@
+volumes:
+  grav-user:
+  grav-logs:
+  grav-backup:
+
+services:
+  grav:
+    build: ./
+    ports:
+      - 8080:80
+    volumes:
+      - grav-user:/var/www/html/user
+      - grav-logs:/var/www/html/logs
+      - grav-backup:/var/www/html/backup
