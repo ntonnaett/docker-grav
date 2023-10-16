@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libldap2-dev \
     g++ \
     git \
+    git-lfs \
     cron \
     vim \
     && docker-php-ext-install opcache \
