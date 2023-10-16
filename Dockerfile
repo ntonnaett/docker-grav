@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     zlib1g-dev \
     libicu-dev \
+    libldap2-dev \
     g++ \
     git \
     cron \
@@ -27,6 +28,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install zip \
+    && docker-php-ext-configure ldap --prefix=/usr/local/php \
+    && docker-php-ext-install ldap \
     && rm -rf /var/lib/apt/lists/*
 
 # set recommended PHP.ini settings
